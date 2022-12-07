@@ -1,0 +1,6 @@
+commonLabels:
+  app: wordpress
+
+resources:
+- deployment.yml
+- service.yml

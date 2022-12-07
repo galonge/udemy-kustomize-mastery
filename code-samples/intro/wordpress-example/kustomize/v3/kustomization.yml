@@ -1,0 +1,6 @@
+commonLabels:
+  app: v3-wordpress
+
+resources:
+- mysql # kustomize will look for a kustomization.yml in the mysql directory
+- ../base

@@ -1,0 +1,5 @@
+commonLabels:
+  app: v2-wordpress
+
+resources:
+- ../base

@@ -22,6 +22,8 @@ Navigate to the wordpress-example subdirectory
  cd udemy-kustomize-mastery/code-samples/into/wordpress-example
 ```
 
+The manifests/ directory contains raw kubernetes manifests for our application.
+
 Apply manifests to cluster
 ```sh
   kubectl apply -f manifests/v1

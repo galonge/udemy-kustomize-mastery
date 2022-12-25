@@ -1,5 +1,5 @@
 commonLabels:
-  app: wordpress
+  version: v1
 
 resources:
 - deployment.yml

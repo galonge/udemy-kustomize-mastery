@@ -1,0 +1,6 @@
+commonLabels:
+  version: v1
+
+resources:
+- deployment.yml
+- service.yml

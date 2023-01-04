@@ -1,0 +1,11 @@
+apiVersion: builtin
+kind: ConfigMapGenerator
+metadata:
+  name: mysql-config
+envs:
+- mysql-config.properties
+# literals:
+# - MYSQL_ROOT_PASSWORD=admin
+# - MYSQL_DATABASE=wordpress
+# files:
+# - obscure=longsecret.txt

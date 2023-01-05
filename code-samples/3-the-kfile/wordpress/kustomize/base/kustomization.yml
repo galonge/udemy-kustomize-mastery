@@ -1,5 +1,5 @@
-commonLabels:
-  version: v1
+# commonLabels:
+#   version: v1
 
 resources:
 - deployment.yml

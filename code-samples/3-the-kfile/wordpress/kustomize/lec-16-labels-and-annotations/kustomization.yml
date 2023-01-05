@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# commonLabels:
+#   version: lec-16
+
+labels:
+- pairs:
+    version: lec-16
+  includeSelectors: false
+  includeTemplates: true
+
+commonAnnotations:
+  annotated-by: kustomize
+
+namePrefix: lec-16-
+
+resources:
+- mysql
+- ../base

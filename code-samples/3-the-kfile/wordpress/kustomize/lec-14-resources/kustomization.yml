@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 commonLabels:
-  version: lec-12
+  version: lec-14
 
-namePrefix: lec-12-
+namePrefix: lec-14-
 
 resources:
 - mysql
-- ../base
+- https://github.com/galonge/udemy-kustomize-mastery.git//code-samples/3-the-kfile/wordpress/kustomize/base

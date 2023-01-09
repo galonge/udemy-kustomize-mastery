@@ -1,0 +1,10 @@
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: my-label-transformer
+labels:
+  version: v1
+  lecture: transformers
+fieldSpecs:
+- path: metadata/labels
+  create: true

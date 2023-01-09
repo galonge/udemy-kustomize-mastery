@@ -1,0 +1,133 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    version: lec-19
+  name: lec-19
+---
+apiVersion: v1
+data:
+  MYSQL_DATABASE: d29yZHByZXNz
+  MYSQL_ROOT_PASSWORD: YWRtaW4=
+kind: Secret
+metadata:
+  annotations:
+    annotated-by: kustomize
+  labels:
+    generated: "true"
+    version: lec-19
+  name: lec-19-mysql-secret
+  namespace: lec-19
+type: Opaque
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    annotated-by: kustomize
+  labels:
+    app: mysql
+    version: lec-19
+  name: lec-19-mysql
+  namespace: lec-19
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: wordpress
+    version: lec-19
+  name: lec-19-wordpress
+  namespace: lec-19
+spec:
+  ports:
+  - nodePort: 30001
+    port: 80
+  selector:
+    app: wordpress
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    annotated-by: kustomize
+  labels:
+    app: mysql
+    version: lec-19
+  name: lec-19-mysql
+  namespace: lec-19
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        annotated-by: kustomize
+      labels:
+        app: mysql
+        version: lec-19
+    spec:
+      containers:
+      - envFrom:
+        - secretRef:
+            name: lec-19-mysql-secret
+        image: mysql:5.6
+        name: mysql
+        ports:
+        - containerPort: 3306
+          name: mysql
+        resources:
+          limits:
+            cpu: 150m
+            memory: 150Mi
+          requests:
+            cpu: 125m
+            memory: 125Mi
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mysql-persistent-storage
+      volumes:
+      - emptyDir: {}
+        name: mysql-persistent-storage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wordpress
+    version: lec-19
+  name: lec-19-wordpress
+  namespace: lec-19
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        version: lec-19
+    spec:
+      containers:
+      - image: wordpress:4.8-apache
+        name: wordpress
+        ports:
+        - containerPort: 80
+          name: wordpress
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: wordpress-persistent-storage
+      volumes:
+      - emptyDir: {}
+        name: wordpress-persistent-storage

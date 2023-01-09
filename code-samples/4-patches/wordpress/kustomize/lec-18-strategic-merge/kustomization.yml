@@ -1,0 +1,54 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+labels:
+- pairs:
+    version: lec-18
+  includeTemplates: true
+
+
+namePrefix: lec-18-
+namespace: lec-18
+
+patchesStrategicMerge:
+  - patches/patch-limits.yml
+
+# patches:
+# - path: patches/patch-limits.yml # patch file
+#   target:
+#     group: apps
+#     version: v1
+#     kind: Deployment
+#     name: mysql
+#     labelSelector: "app=mysql"
+#     annotationSelector: "annotated-by=kustomize"
+
+# - patch: |- #inline patching
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     metadata:
+#       name: mysql 
+#     spec:
+#       template:
+#         spec:
+#           containers:
+#             - name: mysql
+#               resources:
+#                 requests:
+#                   memory: "100Mi"
+#                   cpu: "100m"
+#                 limits:
+#                   memory: "150Mi"
+#                   cpu: "150m"
+#   target:
+#       group: apps
+#       version: v1
+#       kind: Deployment
+#       name: mysql
+#       labelSelector: "app=mysql"
+#       annotationSelector: "annotated-by=kustomize"
+
+resources:
+- mysql
+- ../base
+- namespace.yml

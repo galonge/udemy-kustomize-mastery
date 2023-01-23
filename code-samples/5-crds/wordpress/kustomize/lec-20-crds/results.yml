@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    version: lec-20
+  name: lec-20
+---
+apiVersion: v1
+data:
+  APP_COLOR: blue
+kind: ConfigMap
+metadata:
+  labels:
+    version: lec-20
+  name: lec-20-my-crd-app-config-bmmhdm2fg6
+  namespace: lec-20
+---
+apiVersion: apps.galonge.dev/v1
+kind: MyCrdApp
+metadata:
+  labels:
+    version: lec-20
+  name: lec-20-my-crd-app
+  namespace: lec-20
+spec:
+  configMapRef: lec-20-my-crd-app-config-bmmhdm2fg6
+  image: my-crd-app-new:v2

@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+labels:
+- pairs:
+    version: lec-20
+  includeTemplates: true
+
+
+namePrefix: lec-20-
+namespace: lec-20
+
+configMapGenerator:
+  - name: my-crd-app-config
+    literals:
+      - APP_COLOR=blue
+
+images:
+  - name: my-crd-app-old
+    newName: my-crd-app-new
+    newTag: v2
+
+configurations:
+  - configurations/crd-config.yml
+
+resources:
+# - mysql
+# - ../base
+- my-crd-app.yml
+- namespace.yml

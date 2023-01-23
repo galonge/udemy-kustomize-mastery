@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev
+namePrefix: dev-
+
+resources:
+  - adservice
+  - cartservice
+  - checkoutservice
+  - currencyservice
+  - frontend
+  - recommendationservice
+  - shippingservice
+  - paymentservice
+  - productcatalogservice
+  - redisservice
+  - loadgenerator
+  - namespace.yml

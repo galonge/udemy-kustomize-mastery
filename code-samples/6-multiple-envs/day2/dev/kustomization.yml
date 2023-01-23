@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev
+
+resources:
+  - "../../base2"
+  - namespace.yml
+
+components:
+  - ../components/google-cloud-ops
+  - ../components/security-context
+  - ../components/resource-group-a
+  - ../components/resource-group-b
+  - ../components/resource-group-c
+  - ../components/resource-group-d

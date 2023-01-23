@@ -1,0 +1,7 @@
+apiVersion: apps.galonge.dev/v1
+kind: MyCrdApp
+metadata:
+  name: my-crd-app
+spec:
+  image: my-crd-app-old
+  configMapRef: my-crd-app-config

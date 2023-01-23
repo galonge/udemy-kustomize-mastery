@@ -1,8 +1,0 @@
-apiVersion: builtin
-kind: PrefixSuffixTransformer
-metadata:
-  name: my-prefix-transformer
-prefix: v1-
-# suffix: -transformers
-fieldSpecs:
-- path: metadata/name

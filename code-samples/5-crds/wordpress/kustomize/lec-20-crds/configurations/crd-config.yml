@@ -1,0 +1,9 @@
+nameReference:
+- kind: ConfigMap
+  fieldSpecs:
+  - kind: MyCrdApp
+    path: spec/configMapRef
+
+images:
+- path: spec/image
+  kind: MyCrdApp

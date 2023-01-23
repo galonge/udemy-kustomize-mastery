@@ -1,0 +1,7 @@
+apiVersion: k3d.io/v1alpha3
+kind: Simple 
+name: kustomize-test
+servers: 2 # same as `--servers 1`
+agents: 2 # same as `--agents 2`
+ports:
+  - port: "30001-30005:30001-30005" # same as `--port '8080:80@loadbalancer'`

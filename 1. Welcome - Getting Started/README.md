@@ -1,5 +1,5 @@
 # Intro topics for the course
 
-1. [What is Docker?](what-is-docker/what-is-docker.md)
-2. [Quick Container run on Play with Docker](quick-container-run/quick-container-run.md)
-3. [Why Docker? Why Now?](why-docker/why-docker.md)
+1. [What is Kustomize?](what-is-kustomize/what-is-kustomize.md)
+2. [Kustomize Hands-on - Killa Koda](what-is-kustomize/hands-on.md)
+3. [Why Kustomize?](what-is-kustomize/why-kustomize.md)

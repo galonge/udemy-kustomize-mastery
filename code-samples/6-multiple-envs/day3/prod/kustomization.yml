@@ -2,12 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: prod
-namePrefix: prod-
 
 replicas:
 - name: frontend
   count: 3
 
 resources:
-  - "../../base"
+  - "../../../base3"
   - namespace.yml

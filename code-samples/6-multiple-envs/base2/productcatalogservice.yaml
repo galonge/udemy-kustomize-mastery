@@ -17,7 +17,7 @@ kind: Deployment
 metadata:
   name: productcatalogservice-deployment
   labels:
-    resource-group: "resource-group-a"
+    resource-group: resource-group-a
 spec:
   selector:
     matchLabels:

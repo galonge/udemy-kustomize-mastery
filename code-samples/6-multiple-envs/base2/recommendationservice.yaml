@@ -16,7 +16,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: recommendationservice-deployment
-  resource-group: "resource-group-b"
+  labels:
+    resource-group: "resource-group-b"
 spec:
   selector:
     matchLabels:

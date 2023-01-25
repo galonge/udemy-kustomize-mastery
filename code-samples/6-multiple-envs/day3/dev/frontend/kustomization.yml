@@ -7,4 +7,4 @@ configMapGenerator:
       - env.properties
 
 resources:
-  - "../../base_day2/frontend"
+  - "../../../base3/frontend"

@@ -17,7 +17,7 @@ kind: Deployment
 metadata:
   name: adservice-deployment
   labels:
-    resource-group: resource-group-c
+    resource-group: resource-group-a
 spec:
   selector:
     matchLabels:

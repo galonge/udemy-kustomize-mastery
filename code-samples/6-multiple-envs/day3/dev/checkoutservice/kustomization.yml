@@ -7,4 +7,4 @@ configMapGenerator:
       - env.properties
 
 resources:
-  - "../../base_day2/checkoutservice"
+  - "../../../base3/checkoutservice"

@@ -16,7 +16,7 @@ kind: Deployment
 metadata:
   name: loadgenerator-deployment
   labels:
-    resource-group: "resource-group-d"
+    resource-group: resource-group-d
 spec:
   selector:
     matchLabels:

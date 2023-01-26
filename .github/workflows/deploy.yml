@@ -27,7 +27,7 @@ jobs:
     # Configure Workload Identity Federation and generate an access token.
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
-      uses: 'google-github-actions/auth@v0'
+      uses: 'google-github-actions/auth@v1'
       with:
         token_format: 'access_token'
         workload_identity_provider:  ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
@@ -40,16 +40,17 @@ jobs:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
 
-    
-    # Set up kustomize
-    - name: Set up Kustomize
-      run: |-
-        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
-        chmod u+x ./kustomize
+    # Download and setup latest kubectl version 
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
 
     # Deploy to the GKE cluster
     - name: Deploy to GKE
       run: |-
-        ./kustomize build code-samples/6-multiple-envs/day2/dev/ | kubectl apply -f -
+        kubectl kustomize code-samples/6-multiple-envs/day2/dev/ > deploy.yml
+        cat deploy.yml
+        kubectl apply -f deploy.yml
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide

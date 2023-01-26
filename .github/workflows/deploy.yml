@@ -8,7 +8,7 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: kustomize-demo-cluster 
   GKE_ZONE: us-central1-c
-  DEPLOYMENT_NAME: kustomize-demo
+  ENVIRONMENT: dev
 
 jobs:
   setup-prepare-manifests-deploy:
@@ -52,5 +52,4 @@ jobs:
         kubectl kustomize code-samples/6-multiple-envs/day2/dev/ > deploy.yml
         cat deploy.yml
         kubectl apply -f deploy.yml
-        kubectl rollout status deployment/$DEPLOYMENT_NAME
-        kubectl get services -o wide
+        kubectl get services -n $ENVIRONMENT -o wide

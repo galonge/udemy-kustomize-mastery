@@ -7,3 +7,6 @@ This repository is for used in my Udemy Course "Kustomize Mastery: Managing Kube
 Feel free to report issues or create PRs if you find a problem with examples in this repository. 
 
 This repo is under active development and will continue to be updated as new sections are added to the course.
+
+## Slack Channel for this course
+- https://join.slack.com/t/devopswithgeorge/shared_invite/zt-1majqkdwj-3wtm9l0RV3JchDv_cnPQPQ

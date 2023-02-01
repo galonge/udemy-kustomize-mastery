@@ -6,7 +6,6 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  GKE_ZONE: us-central1-c
 
 jobs:
   setup-prepare-list:
@@ -33,4 +32,4 @@ jobs:
     # List the instances in the project
     - name: List Instances
       run: |-
-        gcloud compute instances list --project $PROJECT_ID --zone $GKE_ZONE
+        gcloud compute instances list --project $PROJECT_ID

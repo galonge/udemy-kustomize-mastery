@@ -1,0 +1,36 @@
+name: Connect to GCP and List Instances
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GKE_ZONE: us-central1-c
+
+jobs:
+  setup-prepare-list:
+    name: Setup, Prepare,
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # Configure Workload Identity Federation and generate an access token.
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        token_format: 'access_token'
+        workload_identity_provider:  ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
+        service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+    # List the instances in the project
+    - name: List Instances
+      run: |-
+        gcloud compute instances list --project $PROJECT_ID --zone $GKE_ZONE

@@ -50,7 +50,7 @@ jobs:
     - name: Deploy to GKE
       run: |-
         kubectl kustomize code-samples/6-multiple-envs/day2/dev/ > deploy.yml
-        echo "Deploying to $ENVIRONMENT..."
+        echo "Kustomize output:"
         cat deploy.yml
         
         kubectl apply -f deploy.yml

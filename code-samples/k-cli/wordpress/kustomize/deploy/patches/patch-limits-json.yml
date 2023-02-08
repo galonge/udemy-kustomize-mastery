@@ -1,0 +1,4 @@
+[
+  {"op": "replace", "path": "/spec/template/spec/containers/0/resources/limits", "value": {"cpu": "150m", "memory": "150Mi"}},
+  {"op": "replace", "path": "/spec/template/spec/containers/0/resources/requests", "value": {"cpu": "120m", "memory": "120Mi"}}
+]

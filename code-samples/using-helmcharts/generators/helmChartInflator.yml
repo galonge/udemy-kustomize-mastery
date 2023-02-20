@@ -1,0 +1,10 @@
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: mysql-helmchart
+name: mysql
+version: 9.4.0
+repo:  https://charts.bitnami.com/bitnami
+releaseName: mysql-demo
+namespace: database
+# includeCRDs: true

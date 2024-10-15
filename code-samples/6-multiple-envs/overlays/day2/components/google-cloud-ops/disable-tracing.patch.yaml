@@ -1,0 +1,24 @@
+
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value:
+    name: DISABLE_STATS
+    value: "1"
+
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value:
+    name: DISABLE_TRACING
+    value: "1"
+
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: DISABLE_PROFILER
+    value: "1"
+
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value:
+    name: DISABLE_DEBUGGER
+    value: "1"

@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: staging
+
+replicas:
+- name: frontend
+  count: 2
+
+
+labels:
+  - pairs:
+      env: staging
+      # tracing: disabled
+
+resources:
+  - "../../../bases/base2"
+  - namespace.yml
+
+components:
+  - ../../../components/redis
+  # - ../components/google-cloud-ops
+  # - ../components/security-context
+  # - ../components/resource-group-a
+  # - ../components/resource-group-b
+  # - ../components/resource-group-c
+  # - ../components/resource-group-d

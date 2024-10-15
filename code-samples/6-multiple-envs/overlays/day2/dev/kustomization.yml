@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev
+
+resources:
+  - "../../../bases/base2"
+  - namespace.yml
+
+labels:
+  - pairs:
+      env: dev
+      owned-by: dev-team
+      # tracing: disabled
+
+
+# components:
+  # - ../../../components/redis
+  # - ../../../components/google-cloud-ops
+  # - ../components/security-context
+  # - ../components/resource-group-a
+  # - ../components/resource-group-b
+  # - ../components/resource-group-c
+  # - ../components/resource-group-d

@@ -3,15 +3,20 @@ kind: Kustomization
 
 namespace: dev
 
+labels:
+  - pairs:
+      env: dev
+      owned-by: team-a
+      # tracing: disabled
+
 resources:
   - "../../../bases/base2"
   - namespace.yml
 
-labels:
-  - pairs:
-      env: dev
-      owned-by: dev-team
-      # tracing: disabled
+components:
+  - "../../../components/oss-mysql"
+  # - ../../../components/oss-redis
+
 
 
 # components:

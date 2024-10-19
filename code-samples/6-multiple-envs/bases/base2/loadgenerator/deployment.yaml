@@ -68,9 +68,12 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         image: gcr.io/google-samples/microservices-demo/loadgenerator:v0.4.1
-        envFrom:
-          - configMapRef:
-              name: loadgenerator-config
+        env:
+        - name: FRONTEND_ADDR
+          value: "frontend:80"
+        - name: USERS
+          value: "10"
+
         resources:
           requests:
             cpu: 300m

@@ -3,16 +3,16 @@ kind: Kustomization
 
 namespace: dev
 
-# nameSuffix: -dev
+nameSuffix: -dev
 
 # commonLabels:
 #   env: dev
-#   owned-by: dev-team
+#   owned-by: team-a
 
-# labels:
-#   - pairs:
-#       env: dev
-#       owned-by: dev-team
+labels:
+  - pairs:
+      env: dev
+      owned-by: team-a
 
 resources:
   - "../../../bases/base1"

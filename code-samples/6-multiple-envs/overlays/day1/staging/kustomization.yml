@@ -3,6 +3,17 @@ kind: Kustomization
 
 namespace: staging
 
+nameSuffix: -staging
+
+# commonLabels:
+#   env: staging
+#   owned-by: team-a
+
+labels:
+  - pairs:
+      env: staging
+      owned-by: team-a
+
 replicas:
 - name: adservice
   count: 3

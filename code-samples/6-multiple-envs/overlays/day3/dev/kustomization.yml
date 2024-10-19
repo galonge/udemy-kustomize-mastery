@@ -3,6 +3,12 @@ kind: Kustomization
 
 namespace: dev
 
+labels:
+  - pairs:
+      env: dev
+      owned-by: team-a
+
+
 resources:
   - adservice
   - cartservice

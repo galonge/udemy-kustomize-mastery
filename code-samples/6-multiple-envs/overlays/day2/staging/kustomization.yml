@@ -6,6 +6,7 @@ namespace: staging
 replicas:
 - name: frontend
   count: 2
+- name: 
 
 
 labels:
@@ -17,8 +18,8 @@ resources:
   - "../../../bases/base2"
   - namespace.yml
 
-components:
-  - ../../../components/redis
+# components:
+#   - ../../../components/oss-redis
   # - ../components/google-cloud-ops
   # - ../components/security-context
   # - ../components/resource-group-a

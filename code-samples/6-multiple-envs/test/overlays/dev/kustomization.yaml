@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+ - ../../base
+
+replacements:
+ - source:
+     kind: ConfigMap
+     name: dev-env-config
+     fieldPath: data.AWS_REGION
+   targets:
+     - select:
+         kind: SecretStore
+       fieldPaths:
+         - spec.provider.aws.region
+     - select:
+         kind: ExternalSecret
+       fieldPaths:
+         - spec.data.*.remoteRef.key
+
+configMapGenerator:
+ - name: dev-env-config
+   literals:
+     - AWS_REGION=us-central-2
+     - ENV_PATH=/dev/path/to/secrets

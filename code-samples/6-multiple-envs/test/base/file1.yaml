@@ -1,0 +1,31 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: envparameterstore
+spec:
+  provider:
+    aws:
+      service: ParameterStore
+      region: us-west-2
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: prienv
+spec:
+  secretStoreRef:
+    name: envparameterstore      # Name of the SecretStore
+    kind: SecretStore         # Type of the store
+  target:
+    name: priv2 # Name of the Kubernetes secret to create
+    creationPolicy: Owner
+  data:
+    - secretKey: DBPassword          # Key in the Kubernetes secret
+      remoteRef:
+        key: /v2/env/postgres/rds_password   # Path in Parameter Store
+    - secretKey: DATADOG_API_KEY
+      remoteRef:
+        key: /v2/env/datadog/api_key
+    - secretKey: DOCUSIGN_API_ACCOUNT_ID
+      remoteRef:
+        key: /v2/env/docusign/account_id

@@ -19,7 +19,7 @@ Clone the github repository:
 
 Navigate to the wordpress-example subdirectory
 ```sh
- cd udemy-kustomize-mastery/code-samples/into/wordpress-example
+ cd udemy-kustomize-mastery/code-samples/intro/wordpress-example
 ```
 
 The manifests/ directory contains raw kubernetes manifests for our application.

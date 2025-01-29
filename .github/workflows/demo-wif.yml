@@ -33,3 +33,4 @@ jobs:
     - name: List Instances
       run: |-
         gcloud compute instances list --project $PROJECT_ID
+        echo "Hello"
